@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 const SRC_DIR = path.join(__dirname, 'client/src');
-const PUBLIC_DIR = path.join(__dirname, 'client/public');
+const PUBLIC_DIR = path.join(__dirname, 'client/public/bundle');
 
 module.exports = {
   mode: 'development',
@@ -24,6 +24,16 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.png|svg|jpg|jpeg|gif$/,
+        exclude: /node_modules/,
+        use: "file-loader",
+      }
     ],
   },
 };
