@@ -3,6 +3,8 @@ import TextBox from "./components/text_box/TextBox";
 
 const App = () => {
   const [text, setText] = useState("");
+  const [timeRemaining, setTimeRemaining] = useState(60);
+  const [gameIsActive, setGameIsActive] = useState(false);
 
   const handleTyping = (event) => {
     setText(event.target.value);
