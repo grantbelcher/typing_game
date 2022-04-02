@@ -3,7 +3,7 @@ import TextBox from "./components/text_box/TextBox";
 
 const App = () => {
   const [text, setText] = useState("");
-  const [timeRemaining, setTimeRemaining] = useState(10);
+  const [timeRemaining, setTimeRemaining] = useState(20);
   const [gameIsActive, setGameIsActive] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
@@ -15,8 +15,8 @@ const App = () => {
     }
     if (timeRemaining === 0) {
       setGameIsActive(false);
-      setTimeRemaining(10);
-      countWords();
+      setTimeRemaining(20);
+      calculateWPM();
     }
   }, [gameIsActive, timeRemaining]);
 
@@ -28,9 +28,10 @@ const App = () => {
     gameIsActive ? setGameIsActive(false) : resetGame();
   };
 
-  const countWords = () => {
-    const words = text.split(" ");
-    setWordCount(words.length);
+  const calculateWPM = () => {
+    let words = text.split(" ");
+    let wpm = words.length * 3;
+    setWordCount(wpm);
   };
 
   const resetGame = () => {
@@ -47,8 +48,10 @@ const App = () => {
         text={text}
         gameIsActive={gameIsActive}
       />
-      <button onClick={toggleGameIsActive}>Start Game</button>
-      <h1>Word Count: {wordCount} words</h1>
+      <button onClick={toggleGameIsActive} disabled={gameIsActive}>
+        Start Game
+      </button>
+      <h1>You Type At: {wordCount} words per minute</h1>
     </div>
   );
 };
