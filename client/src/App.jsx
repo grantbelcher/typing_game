@@ -15,6 +15,8 @@ const App = () => {
     }
     if (timeRemaining === 0) {
       setGameIsActive(false);
+      setTimeRemaining(10);
+
       countWords();
     }
   }, [gameIsActive, timeRemaining]);
@@ -24,12 +26,17 @@ const App = () => {
   };
 
   const toggleGameIsActive = () => {
-    gameIsActive ? console.log("game over, man") : setGameIsActive(true);
+    gameIsActive ? setGameIsActive(false) : resetGame();
   };
 
   const countWords = () => {
     const words = text.split(" ");
     setWordCount(words.length);
+  };
+
+  const resetGame = () => {
+    setGameIsActive(true);
+    setText("");
   };
 
   return (
