@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
-import piazza from './piazza.jpeg'
+import Test from "./components/Test/Test.jsx";
+import piazza from "./piazza.jpeg";
 
 const App = () => (
   <div>
-    <h1 className="wow">fuck youuuu!</h1>
-    <img src={piazza} alt=""/>
+    <h1 className="wow">Welcome to React!</h1>
+    <Test />
+    <img src={piazza} alt="" />
   </div>
 );
 
