@@ -5,6 +5,7 @@ const App = () => {
   const [text, setText] = useState("");
   const [timeRemaining, setTimeRemaining] = useState(5);
   const [gameIsActive, setGameIsActive] = useState(false);
+  const [wordCount, setWordCount] = useState(0);
 
   useEffect(() => {
     if (gameIsActive && timeRemaining > 0) {
@@ -22,10 +23,13 @@ const App = () => {
   };
 
   const toggleGameIsActive = () => {
-    gameIsActive ? setGameIsActive(false) : setGameIsActive(true);
+    gameIsActive ? console.log("game over, man") : setGameIsActive(true);
   };
 
-  console.log(gameIsActive);
+  const countWords = () => {
+    const words = text.split(" ");
+    setWordCount(words.length);
+  };
 
   return (
     <div>
@@ -33,7 +37,8 @@ const App = () => {
       <h4>Time Remaining: {timeRemaining} seconds</h4>
       <TextBox handleChange={handleTyping} text={text} />
       <button onClick={toggleGameIsActive}>Start Game</button>
-      <h1>Word Count: X words</h1>
+      <button onClick={countWords}>Count</button>
+      <h1>Word Count: {wordCount} words</h1>
     </div>
   );
 };
