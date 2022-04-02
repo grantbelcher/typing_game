@@ -12,6 +12,9 @@ const App = () => {
         setTimeRemaining(timeRemaining - 1);
       }, 1000);
     }
+    if (timeRemaining === 0) {
+      setGameIsActive(false);
+    }
   }, [gameIsActive, timeRemaining]);
 
   const handleTyping = (event) => {
@@ -21,6 +24,8 @@ const App = () => {
   const toggleGameIsActive = () => {
     gameIsActive ? setGameIsActive(false) : setGameIsActive(true);
   };
+
+  console.log(gameIsActive);
 
   return (
     <div>
