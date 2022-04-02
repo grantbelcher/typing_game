@@ -36,9 +36,12 @@ const App = () => {
     <div>
       <h1 className="wow">How Fast Can You Type?</h1>
       <h4>Time Remaining: {timeRemaining} seconds</h4>
-      <TextBox handleChange={handleTyping} text={text} />
+      <TextBox
+        handleChange={handleTyping}
+        text={text}
+        gameIsActive={gameIsActive}
+      />
       <button onClick={toggleGameIsActive}>Start Game</button>
-      {/* <button onClick={countWords}>Count</button> */}
       <h1>Word Count: {wordCount} words</h1>
     </div>
   );
