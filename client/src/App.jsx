@@ -3,7 +3,7 @@ import TextBox from "./components/text_box/TextBox";
 
 const App = () => {
   const [text, setText] = useState("");
-  const [timeRemaining, setTimeRemaining] = useState(5);
+  const [timeRemaining, setTimeRemaining] = useState(10);
   const [gameIsActive, setGameIsActive] = useState(false);
   const [wordCount, setWordCount] = useState(0);
 
@@ -15,6 +15,7 @@ const App = () => {
     }
     if (timeRemaining === 0) {
       setGameIsActive(false);
+      countWords();
     }
   }, [gameIsActive, timeRemaining]);
 
@@ -37,7 +38,7 @@ const App = () => {
       <h4>Time Remaining: {timeRemaining} seconds</h4>
       <TextBox handleChange={handleTyping} text={text} />
       <button onClick={toggleGameIsActive}>Start Game</button>
-      <button onClick={countWords}>Count</button>
+      {/* <button onClick={countWords}>Count</button> */}
       <h1>Word Count: {wordCount} words</h1>
     </div>
   );
