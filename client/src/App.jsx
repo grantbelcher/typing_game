@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import Test from "./components/Test/Test";
 import piazza from "./piazza.jpeg";
 
