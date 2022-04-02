@@ -16,7 +16,6 @@ const App = () => {
     if (timeRemaining === 0) {
       setGameIsActive(false);
       setTimeRemaining(10);
-
       countWords();
     }
   }, [gameIsActive, timeRemaining]);

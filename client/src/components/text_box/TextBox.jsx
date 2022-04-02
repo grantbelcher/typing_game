@@ -3,11 +3,11 @@ import React, { useRef, useEffect } from "react";
 const TextBox = ({ handleChange, text, gameIsActive }) => {
   const inputElement = useRef(null);
 
-  // useEffect(() => {
-  //   if (gameIsActive) {
-  //     inputElement.current.focus();
-  //   }
-  // }, [gameIsActive]);
+  useEffect(() => {
+    if (gameIsActive) {
+      inputElement.current.focus();
+    }
+  }, [gameIsActive]);
 
   return (
     <textarea
